@@ -5,17 +5,20 @@ class MenuPage {
     return cy.get(menuSelectors.financeAndESG);
   }
 
-  getKPI() {
-    return cy.get(menuSelectors.KPI);
-  }
-
   hoverFinanceAndESG() {
-    this.getFinanceAndESG().trigger("mouseover").trigger("mousemove");
+    this.getFinanceAndESG()
+      .trigger("mouseover")
+      .trigger("mousemove")
+      .trigger("mouseover");
     return this;
   }
 
-  clickKPIEngine() {
-    this.getKPI().contains("ESG KPI Engine").click();
+  getESGKPIEngine() {
+    return cy.get(menuSelectors.financeAndESG).contains("ESG KPI Engine");
+  }
+
+  clickESGKPIEngine() {
+    this.getESGKPIEngine().click();
     return this;
   }
 }

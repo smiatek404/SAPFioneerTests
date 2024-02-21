@@ -21,14 +21,14 @@ describe("SAP Fioneers page", () => {
   });
 
   it("hovers over the Finance & ESG bookmark, clicks at ESG KPI Engine field and verifies url", () => {
-    menuPage.hoverFinanceAndESG().clickKPIEngine();
+    menuPage.hoverFinanceAndESG().clickESGKPIEngine();
     cy.url("eq", "https://www.sapfioneer.com/finance-esg/esg-kpi-engine/");
   });
 
   it("searches for contact button and verifies url, passes wrong email and checks validation message", () => {
     mainPage.clickContactButton();
     cy.url("eq", "https://www.sapfioneer.com/contact/");
-    contactPage.typeEmail("4356");
+    contactPage.clickAndTypeEmail("4356");
     contactPage
       .getEmailError()
       .should("contain", "Email must be formatted correctly.");

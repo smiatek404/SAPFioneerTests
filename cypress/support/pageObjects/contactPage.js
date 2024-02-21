@@ -14,10 +14,10 @@ class ContactPage {
       .get('[id="hs-form-iframe-0"]')
       .its("0.contentDocument.body")
       .then(cy.wrap)
-      .find(contactPageSelectors.emailError);
+      .find(contactPageSelectors.formContent);
   }
 
-  typeEmail(email) {
+  clickAndTypeEmail(email) {
     this.getEmailField().click().type(email);
     return this;
   }

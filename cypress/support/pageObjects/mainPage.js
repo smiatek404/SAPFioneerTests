@@ -2,14 +2,11 @@ import { mainPageSelectors } from "../../fixtures/selectors.cy";
 
 class MainPage {
   getContactButton() {
-    return cy.get(mainPageSelectors.contactButton);
+    return cy.contains("Get in touch");
   }
 
   getSpecificContactButton() {
-    return cy
-      .get(mainPageSelectors.contactButton)
-      .contains("Get in touch")
-      .first();
+    return cy.contains("Get in touch").first();
   }
 
   clickContactButton() {
